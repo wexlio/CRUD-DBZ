@@ -1,0 +1,54 @@
+<div class="container pb-4 pl-0">
+    <h1>Alls Pedidos</h1>
+</div>
+
+
+<table class="table table-bordered border-primary">
+  <thead>
+    <tr class="bg-success">
+      {{!-- <th class="text-center" scope="col">#</th> --}}
+      <th class="text-center" scope="col">#</th>
+      <th class="text-center" scope="col">Nombre Cliente</th>
+      <th class="text-center" scope="col">Celular Cliente</th>
+      <th class="text-center" scope="col">Correo Cliente</th>
+      <th class="text-center" scope="col">Direccion Cliente</th>
+      <th class="text-center" scope="col">Referencia Cliente</th>
+      <th class="text-center" scope="col">Categoria Producto</th>
+      <th class="text-center" scope="col">Nombre Producto</th>
+      <th class="text-center" scope="col">Precio Producto</th>
+      <th class="text-center" scope="col">Accions</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {{#each pedidos}}
+    <tr>
+      {{!-- <th class="text-center" scope="row">{{length}}</th> --}}
+
+      
+      <td class="text-center">{{@index}}</td>
+      <td class="text-center">{{nombreCliente}}</td>
+      <td class="text-center">{{celularCliente}}</td>
+      <td class="text-center">{{correoCliente}}</td>
+      <td class="text-center">{{direccionCliente}}</td>
+      <td class="text-center">{{referenciaCliente}}</td>
+      <td class="text-center">{{categoriaProducto}}</td>
+      <td class="text-center">{{nombreProducto}}</td>
+      <td class="text-center">{{precioProducto}}</td>
+      <td width="30px">
+        <div class="mr-2 d-flex justify-content-center align-items-center">
+          
+          <form method="POST" action="/pedidos/{{_id}}?_method=DELETE">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="btn btn-outline-danger">Delete</button>
+          </form>
+
+        </div>
+
+      </td>
+      
+
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

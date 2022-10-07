@@ -5,6 +5,7 @@ import { renderJsonPortadas, renderPortadasForm, createNewPortada, renderPortada
 import { renderCategoriasForm, createNewCategoria, renderCategorias, renderEditCategoriasForm, updateCategorias, deleteCategorias } from "../controllers/categorias.controllers.js"
 import { renderConfigsForm, createNewConfigs, renderConfigs, renderEditConfigsForm, updateConfigs, deleteConfigs } from "../controllers/configs.controllers.js"
 import { viewPage } from "../controllers/viewPage.controllers.js"
+import { viewPedidos, createPedidos, deletePedidos } from "../controllers/pedidos.controllers.js"
 
 const router = Router();
 
@@ -127,6 +128,13 @@ router.delete("/configs/delete-style/:id", deleteConfigs)
 // View page 
 
 router.get("/", viewPage)
+
+
+//view pedidos
+
+router.get("/pedidos", viewPedidos)
+router.post("/pedidos", createPedidos)
+router.delete("/pedidos/:id", deletePedidos)
 
 
 

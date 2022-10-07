@@ -123,11 +123,12 @@ header{
 }
 
 .slider-boton{
-	display: flex;
+	/* display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-self: center;
+	justify-self: center; */
 	position: absolute;
+	text-align: center;
 	margin-top: -35px;
 	width: 28px;
 	height: 28px;
@@ -154,10 +155,22 @@ header{
 }
 
 .slider-boton-izquierda{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-self: center;
+	align-content: center;
+	justify-content: center;
 	left: 1px;
 }
 
 .slider-boton-derecha{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-self: center;
+	align-content: center;
+	justify-content: center;
 	right: 1px;
 }
 
@@ -1152,7 +1165,7 @@ form div img {
 	}
 }
 
-#btn-enviar{
+.boton{
 
 	/* width: 100%;
 	height: 90%;
@@ -1318,8 +1331,8 @@ form div img {
 .personas-mirando-cambiante{
 	margin: 20px 0 10px 0;
 	border: 1px solid transparent;
-	background: #fff;
-	border-radius: 7px;
+	background: #efefef;
+	border-radius: 10px;
 	padding: 10px;
 	max-width: 100%;
 	text-align: left;
@@ -1431,7 +1444,6 @@ form div img {
 		min-width: 100%;
 		margin-top: -56px; 
 		z-index: 999999999999999999999;
-		
 	}
 }
 
@@ -1455,6 +1467,7 @@ form div img {
 
 .subdetails-titulo{
 	font-weight:600;
+	border-bottom: none !important;
 }
 /* 
 #precio22{
@@ -1463,4 +1476,68 @@ form div img {
 
 .container-delatils-products{
 	color: var(--color-primario);
+}
+
+/* estilos de titulos de detalle de producto */
+.subdetails-estrellas{
+	border-bottom: rgba(236, 236, 236, 1) solid !important;
+	padding-bottom: 10px !important;
+	margin-left: 0px !important;
+	font-size: 18px;
+}
+
+#diferencia{
+	border-radius: 10px;
+	border:  2px solid var(--color-primario);
+	padding: 3px;
+	margin: 5px 0 0 0 !important;
+	/* border-color: #00c1b1 */
+}
+
+.modal-formulario{
+	opacity: 0;
+	visibility: hidden;
+	position: fixed;
+	z-index: 1000;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: translateX(0%);
+	margin-top: 35px;
+}
+
+.modal-formulario2{
+	max-width: 98%;
+	height: 95vh;
+	background: #fff;
+	overflow-y: scroll !important;
+	padding: 11px;
+	/*transform: translate(-50%, -50%);*/
+
+	border-radius: 5px;
+	position: relative;
+	transition: transform 2s;
+	transform: translateY(0%);
+}
+
+.cerrar-modal-formulario{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 25px;
+	height: 25px;
+	background: red;
+	opacity: 0.7;
+	color: #fff;
+	line-height: 25px;
+	cursor: pointer;
+	border-radius: 50%;
 }

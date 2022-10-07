@@ -66,8 +66,8 @@ const mostrarData = (res) =>{
   const containerSlider = document.getElementById("container-slider");
 
   containerSlider.innerHTML += `
-			 		<div class="slider-boton slider-boton-derecha" id="slider-boton-derecha">&#62</div>
-		 			<div class="slider-boton slider-boton-izquierda" id="slider-boton-izquierda">&#60</div>`;
+			 		<div class="slider-boton slider-boton-derecha" id="slider-boton-derecha">></div>
+		 			<div class="slider-boton slider-boton-izquierda" id="slider-boton-izquierda"><</div>`;
 
   const header = document.getElementById("header");
 
@@ -113,34 +113,7 @@ const mostrarData = (res) =>{
 
   // ----Mostrar primeros productos i
   let a = 1;
-  // for (var i = 0; i < res[0].length; i++) {
-  //   const main = document.getElementById("main");
-  //   if (res[0][i].categoria === res[1][2].textoCategoria) {
-  //     main.innerHTML += `<div class="hover ordenar-altura" value="producto${a}${
-  //       i
-  //     }" id="fotos">
-	// 			<div class="slider" id="fotos">
-	// 				<img class="${a - 1}${i} redirect imgs ostia ${
-  //       res[0][i].imagen1.secure_url
-  //     }" src="${res[0][i].imagen1.secure_url}" id="redirect">
-	// 					<div class="liga-descuento"></div>
-	// 			</div>	
-	// 			<p class="${a - 1}${i} redirect pila ostia" id="redirect">${
-  //       res[0][i].nombre
-  //     }</p>
-	// 			<b class="flexito redirect" id="redirect">
-	// 				<h4 class="precio${i} redirect" id="redirect">${divisa} ${
-  //       res[0][i].precio
-  //     }.00</h4>
-	// 				<button class="boton111 0${i} ${res[0][i].imagen1.secure_url}" type="button${
-  //       i
-  //     }">Ver detalles</button>
-	// 			</b>	
-	// 		</div>`;
-  //   } else {
-  //     null;
-  //   }
-  // }
+
   res[0].forEach(element => {
     const main = document.getElementById("main");
     if (element.categoria === res[1][0].textoCategoria) {
@@ -277,7 +250,7 @@ const mostrarData = (res) =>{
     }
   }
 
-  window.addEventListener("click", function (e) {
+  window.addEventListener("click", async function (e) {
     console.log(e.target);
     let x = e.target;
     const y = x.classList.item(0);
@@ -295,7 +268,7 @@ const mostrarData = (res) =>{
       Borrar();
 
 
-      res[0].forEach(element => {
+      await res[0].forEach(element => {
         const item = document.createElement("P");
         if (element.categoria == a) {
           item.innerHTML += `<div class="hover ordenar-altura" value="producto${a}" id="fotos">
@@ -393,6 +366,7 @@ const mostrarData = (res) =>{
 
 
 window.addEventListener("click", function(e){
+  console.log(document.URL)
   console.log(e.target)
   const select = e.target
   const classSelect1 = select.classList.item(5);
@@ -438,7 +412,7 @@ window.addEventListener("click", function(e){
 
               <h1 class="sub subdetails-titulo" id="textNombre11">${element.nombre}</h1>
                 
-              <h2 class="sub subdetails-estrellas" id="estrellas">⭐⭐⭐⭐✨</h2>
+              <h2 class="sub subdetails-estrellas" id="estrellas">⭐⭐⭐⭐⭐</h2>
         
               <div id="preciasos">
                
@@ -465,7 +439,7 @@ window.addEventListener("click", function(e){
               </div>
 
               <div class="boton-formulario1" id="boton-formulario1">
-                <input class="boton" type="submit" value="REALIZAR PEDIDO Y PAGAR EN CASA" id="btn-enviar">
+                <input class="boton" type="submit" value="REALIZAR PEDIDO Y PAGAR EN CASA" id="btn-enviar1">
               </div>	
 
               <div class="grids container-descriptions">
@@ -487,7 +461,7 @@ window.addEventListener("click", function(e){
           </div>
 
           <div class="boton-formulario2" id="boton-formulario2">
-            <input class="boton" type="submit" value="REALIZAR PEDIDO Y PAGAR EN CASA" id="btn-enviar">
+            <input class="boton" type="submit" value="REALIZAR PEDIDO Y PAGAR EN CASA" id="btn-enviar2">
           </div>	
 
           <div class="disclaimer" id="disclaimer">
@@ -545,7 +519,7 @@ window.addEventListener("click", function(e){
 
         
         const imagen2 = document.querySelector(".imagen2")
-        const imagen3 = document.querySelector(".imagen3")
+        const imagen3 = document.querySelector(".imagen3");
         const imagen4 = document.querySelector(".imagen4")
         const imagen5 = document.querySelector(".imagen5")
         
@@ -602,7 +576,10 @@ window.addEventListener("click", function(e){
             mainImg.src = thumb.src;
           })
         })
-      
+        const diferencia = document.getElementById("diferencia");
+
+        diferencia.style.transform = "translateX(-9000000%)";
+
       if (element.descuento != undefined || element.descuento != null) {
         // ------------inicio descuentos----
         
@@ -611,7 +588,8 @@ window.addEventListener("click", function(e){
         const textNombre111 = document.getElementById("textNombre11");
         const descuento = document.getElementById("descuento");
         const diferencia = document.getElementById("diferencia");
-        
+
+        diferencia.style.transform = "translateX(0)";
         
         estrellas.style.borderBottom = "4px solid #aaa";
         estrellas.style.width = "100%";
@@ -671,45 +649,45 @@ window.addEventListener("click", function(e){
 
          // --------reloj--------------inicio
      
-     const getRemainingTime = deadline => {
-      let now = new Date(),
-          remainTime = (new Date(deadline) - now + 1000) / 1000;
-          remainSeconds = ('0' + Math.floor(remainTime % 60)).slice(-2);
-          remainMinutes = ('0' + Math.floor(remainTime / 60 % 60)).slice(-2);
-          remainHours = ('0' + Math.floor(remainTime / 3600 % 24)).slice(-2);
+          const getRemainingTime = deadline => {
+            let now = new Date(),
+                remainTime = (new Date(deadline) - now + 1000) / 1000;
+                remainSeconds = ('0' + Math.floor(remainTime % 60)).slice(-2);
+                remainMinutes = ('0' + Math.floor(remainTime / 60 % 60)).slice(-2);
+                remainHours = ('0' + Math.floor(remainTime / 3600 % 24)).slice(-2);
+          
+            return {
+              remainSeconds,
+              remainMinutes,
+              remainHours,
+              remainTime
+            }
+          };
     
-      return {
-        remainSeconds,
-        remainMinutes,
-        remainHours,
-        remainTime
-      }
-    };
-    
-    const countdown = (deadline, hora, min, seg, finalMessage) => {
-      const hora1 = document.getElementById("hora");
-      const min1 = document.getElementById("min");
-      const seg1 = document.getElementById("seg");
-      const reloj1 = document.getElementById("reloj");
-    
-      const timerUpdate = setInterval( () => {
-        let t = getRemainingTime(deadline);
-        hora1.innerHTML = `${t.remainHours}h`;
-        min1.innerHTML = `${t.remainMinutes}m`;
-        seg1.innerHTML = `${t.remainSeconds}s`;
-    
-        if(t.remainTime <= 1) {
-          clearInterval(timerUpdate);
-          reloj1.innerHTML = finalMessage;
-        }
-    
-      }, 1000)
-    };
+      const countdown = (deadline, hora, min, seg, finalMessage) => {
+        const hora1 = document.getElementById("hora");
+        const min1 = document.getElementById("min");
+        const seg1 = document.getElementById("seg");
+        const reloj1 = document.getElementById("reloj");
+      
+        const timerUpdate = setInterval( () => {
+          let t = getRemainingTime(deadline);
+          hora1.innerHTML = `${t.remainHours}h`;
+          min1.innerHTML = `${t.remainMinutes}m`;
+          seg1.innerHTML = `${t.remainSeconds}s`;
+      
+          if(t.remainTime <= 1) {
+            clearInterval(timerUpdate);
+            reloj1.innerHTML = finalMessage;
+          }
+      
+        }, 1000)
+      };
     
     
-    countdown(horacio[0], 'hora', "min", "seg", '¡Terminó la oferta!');
+     countdown(horacio[0], 'hora', "min", "seg", '¡Terminó la oferta!');
     
-    // -------------reloj--------------fin
+      // -------------reloj--------------fin
         
       }else{
         const precioPrincipal3 = document.getElementById("precio-principal11");
@@ -719,40 +697,209 @@ window.addEventListener("click", function(e){
       }
 
 
-      const personasMirando = document.querySelector(".personas-mirando-cambiante");
-      
-      personasMirando.innerHTML = `👁️ ${Math.round(Math.random()*(20-10)+10)} están mirando este producto<br>🚚 Envío gratis de 24 a 48 horas`;
-      
-      setInterval( () => {
-        personasMirando.innerHTML = `👁️ ${Math.round(Math.random()*(20-10)+10)} están mirando este producto<br>🚚 Envío gratis de 24 a 48 horas`;
-      },10000);
-      
-     }
-     else if (cerrarModal == "cerrar-modal") {
-      // productsDetails.style.transform = "translateY(0%)";
-      const modal = document.getElementById("container-delatils-products-modal");
-      const navbar = document.getElementById("navbar");
-      const gordon = document.getElementById("gordon");
-      const productsTotales = document.getElementById("container-delatils-products");
-      // gordon.style.transform = "translateX(-9000000%)";
-      // gordon.style.opacity = "0";
-      gordon.style.overflowY = "scroll";
-      gordon.style.visibility = "visible";
-      console.log(productsTotales)
-      productsTotales.style.opacity = "1";
-      productsTotales.style.visibility = "hidden";
-      modal.style.overflowY = "hidden"
-      productsTotales.transform = "translateX(9000000)";
+          const personasMirando = document.querySelector(".personas-mirando-cambiante");
+          
+          personasMirando.innerHTML = `👁️ ${Math.round(Math.random()*(11-2)+2)} están mirando este producto<br>🚚 Envío a todo el país`;
+          
+          setInterval( () => {
+            personasMirando.innerHTML = `👁️ ${Math.round(Math.random()*(11-2)+2)} están mirando este producto<br>🚚 Envío a todo el país`;
+          },10000);
 
-      // productsTotales.remove()
-     }  
+          // ------------------------------fin reloj + perosnas mirando          
+          // formulario compra
+
+            const botonFormulario1 = document.getElementById("btn-enviar1")
+            const botonFormulario2 = document.getElementById("btn-enviar2")
+            const formularioCompra = document.querySelector(".modal-formulario")
+            const cerrarFormularioCompra = document.querySelector(".cerrar-modal-formulario")
+            const fotoFormularioCompra = document.getElementById("gatoncio")
+            const nombreFormularioCompra = document.getElementById("nombrePrincipal")
+            const precio1FormularioCompra = document.getElementById("precioPrincipal2")
+            const precio2FormularioCompra = document.getElementById("precioPrincipal")
+            const precio3FormularioCompra = document.getElementById("precioPrincipal1")
+
+            fotoFormularioCompra.src = element.imagen1.secure_url
+            nombreFormularioCompra.innerHTML = `${element.nombre}`
+
+            element.descuento? precio1FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio*(1-element.descuento)}` : precio1FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio}`;
+
+            element.descuento? precio2FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio*(1-element.descuento)}` : precio1FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio}`;
+
+            element.descuento? precio3FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio*(1-element.descuento)}` : precio1FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio}`;
 
 
+
+            
+
+            botonFormulario1?.addEventListener("click", function (){
+              // e.preventDefault();
+              formularioCompra.style.opacity = "1"
+              formularioCompra.style.visibility = "visible"
+            })
+            botonFormulario2?.addEventListener("click", function (){
+              // e.preventDefault();
+              formularioCompra.style.opacity = "1"
+              formularioCompra.style.visibility = "visible"
+            })
+
+            cerrarFormularioCompra.addEventListener("click", function (){
+              // e.preventDefault();
+              formularioCompra.style.opacity = "0"
+              formularioCompra.style.visibility = "hidden"
+            })
+
+            
+            let btnEnviar = document.getElementById("btn-enviar11");
+
+            //------------------validacion de formulario--------
+
+            const resultado = document.querySelector(".resultado");
+            const nombre = document.getElementById("nombre");
+            const celular = document.getElementById("celular");
+            const correo = document.getElementById("correo");
+            const direccion = document.getElementById("direccion");
+            const referencia = document.getElementById("referencia");
+            
+
+            btnEnviar?.addEventListener("click", async (e)=>{
+              e.preventDefault();
+              const validarCampos = ()=>{
+                let error = [];
+                if (nombre.value.length < 2) {
+                  error[0] = true;
+                  error[1] = "El nombre es invalido";
+                  return error;
+                } else if (celular.value.length != 9 ||
+                            celular.value[0] != 9){
+                  error[0] = true;
+                  error[1] = "El numero es invalido";
+                  return error;
+                } else if (direccion.value.length < 3) {
+                  error[0] = true;
+                  error[1] = "La direccion es invalida";
+                  return error;
+                } else if (correo.value.length < 3) {
+                  error[0] = true;
+                  error[1] = "El correo es invalido";
+                  return error;
+                } else if (referencia.value.length < 3) {
+                  error[0] = true;
+                  error[1] = "La referencia es invalida";
+                  return error;
+                }
+
+              error[0] = false;
+              return error;
+
+              }
+              
+              console.log("btnEnviar", 900)
+              
+              // console.log(gg)
+              // e.preventDefault();
+              let error = validarCampos();
+              if (error[0]) {
+                // e.preventDefault();
+              
+                resultado.innerHTML = error[1];
+                resultado.classList.add("red");
+                resultado.classList.remove("green");
+                console.log("hellitoopresa")
+                // console.log(gg)
+                
+              } else {
+                  console.log("hellitoo")
+                  // e.preventDefault(e);
+                  
+                  resultado.classList.add("green");
+                  resultado.classList.remove("red");
+          
+                  
+                      element.descuento?
+
+                      await fetch("http://localhost:3001/pedidos", {
+                        method: "POST",
+                        mode: "cors",
+                        headers: {"Content-Type": "application/json"},
+                        body: JSON.stringify({
+                          "nombreCliente": nombre.value,
+                          "celularCliente": celular.value,
+                          "correoCliente": correo.value,
+                          "direccionCliente": direccion.value,
+                          "referenciaCliente": referencia.value,
+                          "categoriaProducto": element.categoria,
+                          "nombreProducto": element.nombre,
+                          "precioProducto": element.precio*(1-element.descuento)
+                        })
+                    
+                      }) :
+                      await fetch("http://localhost:3001/pedidos", {
+                        method: "POST",
+                        mode: "cors",
+                        headers: {"Content-Type": "application/json"},
+                        body: JSON.stringify({
+                          "nombreCliente": nombre.value,
+                          "celularCliente": celular.value,
+                          "correoCliente": correo.value,
+                          "direccionCliente": direccion.value,
+                          "referenciaCliente": referencia.value,
+                          "categoriaProducto": element.categoria,
+                          "nombreProducto": element.nombre,
+                          "precioProducto": element.precio
+                        })
+                    
+                      }) 
+          
+                    
+                        
+                  
+                      element.descuento ?
+                      setTimeout(function() {
+                        location.href = ("https://api.whatsapp.com/send?phone=+51992830820&text=Hola! 👋 %20Mi%20nombre%20es%20" + `${nombre.value}` + "%20Vivo%20en%20" + `${direccion.value}` + "%20quiero%20el%20siguiente%20producto:\n\n                                                     *                                                               " + "✅" + `${element.nombre}` + ", precio: " + `${element.precio * (1 - element.descuento)}` + "                                                  *");
+                      }, 500)
+                      :
+                      setTimeout(function() {
+                        location.href = ("https://api.whatsapp.com/send?phone=+51992830820&text=Hola! 👋 %20Mi%20nombre%20es%20" + `${nombre.value}` + "%20Vivo%20en%20" + `${direccion.value}` + "%20quiero%20el%20siguiente%20producto:\n\n                                                     *                                                               " + "✅" + `${element.nombre}` + ", precio: " + `${element.precio}` + "                                                  *");
+                      }, 500)
+          
+                  // console.log("btnEnviar22");
+                  resultado.innerHTML = "Solicitud enviada correctamente"
+              
+                  
+                }
+              })
+              
+
+
+            //--------------------fin forimulario compras-------------------------------
+
+          
+    }else if (cerrarModal == "cerrar-modal") {
+          // productsDetails.style.transform = "translateY(0%)";
+          const modal = document.getElementById("container-delatils-products-modal");
+          const navbar = document.getElementById("navbar");
+          const gordon = document.getElementById("gordon");
+          const productsTotales = document.getElementById("container-delatils-products");
+          // gordon.style.transform = "translateX(-9000000%)";
+          // gordon.style.opacity = "0";
+          gordon.style.overflowY = "scroll";
+          gordon.style.visibility = "visible";
+          console.log(productsTotales)
+          productsTotales.style.opacity = "1";
+          productsTotales.style.visibility = "hidden";
+          modal.style.overflowY = "hidden"
+          productsTotales.transform = "translateX(9000000)";
+
+          // productsTotales.remove()
+        }  
+        
+      console.log(document.URL)
 
     })
-      
+
     
-})
+    
+  })
 
 
 }
