@@ -1541,3 +1541,12 @@ form div img {
 	cursor: pointer;
 	border-radius: 50%;
 }
+
+.categorys{
+	display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  justify-self: center;
+	  align-content: center;
+	  justify-content: center;
+  }

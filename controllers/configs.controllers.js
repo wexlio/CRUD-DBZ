@@ -74,9 +74,9 @@ export async function createNewConfigs (req, res) {
         // console.log(req.body)
         // console.log(req.files)
 
-        const { nombreTienda, slogan, colorPrincipalPagina,  } = req.body
+        const { nombreTienda, slogan, colorPrincipalPagina, footer1, footer2, footer3, divisa, numeroTelefonico } = req.body
 
-        const configs = new Configs ({ nombreTienda, slogan, colorPrincipalPagina, footer1, footer2, footer3, divisa })
+        const configs = new Configs ({ nombreTienda, slogan, colorPrincipalPagina, footer1, footer2, footer3, divisa, numeroTelefonico })
 
         if (req.files?.imgTienda) {
             const uploadCloudinary = await uploadImage(req.files.imgTienda.tempFilePath)

@@ -18,7 +18,9 @@ const mostrarData = (res) =>{
   // nombre pestaña tienda
   const title = document.getElementById("title")
   title.innerHTML = `${res[3][0].nombreTienda}`
+const encabezado = document.getElementById("encabezadoPage")
 
+encabezado.innerHTML = `${res[3][0].nombreTienda}`
   // ---------color de pagina inicio---
   const style = document.documentElement.style;
 
@@ -102,7 +104,7 @@ const mostrarData = (res) =>{
   res[1].forEach(element => {
     const aside = document.getElementById("aside");
     aside.style.gridTemplateColumns = "repeat(k, 100px)";
-    aside.innerHTML += `<div class="">
+    aside.innerHTML += `<div class="categorys">
 			<img class="categoria ${element.textoCategoria}" src="${
         element.imgCategoria.secure_url
     }" id="categotia">
@@ -855,11 +857,11 @@ window.addEventListener("click", function(e){
                   
                       element.descuento ?
                       setTimeout(function() {
-                        location.href = ("https://api.whatsapp.com/send?phone=+51992830820&text=Hola! 👋 %20Mi%20nombre%20es%20" + `${nombre.value}` + "%20Vivo%20en%20" + `${direccion.value}` + "%20quiero%20el%20siguiente%20producto:\n\n                                                     *                                                               " + "✅" + `${element.nombre}` + ", precio: " + `${element.precio * (1 - element.descuento)}` + "                                                  *");
+                        location.href = ("https://api.whatsapp.com/send?phone="+ `${res[3][0].numeroTelefonico}` + "&text=Hola! 👋 %20Mi%20nombre%20es%20" + `${nombre.value}` + "%20Vivo%20en%20" + `${direccion.value}` + "%20deseo%20adquirir%20el%20siguiente%20producto:\n\n                                                     *                                                               " + "✅" + `${element.nombre}` +  `, ${res[3][0].divisa}` + ` ${element.precio * (1 - element.descuento)}` + "                                                  *"+`${element.imagen1.secure_url}`);
                       }, 500)
                       :
                       setTimeout(function() {
-                        location.href = ("https://api.whatsapp.com/send?phone=+51992830820&text=Hola! 👋 %20Mi%20nombre%20es%20" + `${nombre.value}` + "%20Vivo%20en%20" + `${direccion.value}` + "%20quiero%20el%20siguiente%20producto:\n\n                                                     *                                                               " + "✅" + `${element.nombre}` + ", precio: " + `${element.precio}` + "                                                  *");
+                        location.href = ("https://api.whatsapp.com/send?phone="+ `${res[3][0].numeroTelefonico}` + "&text=Hola! 👋 %20Mi%20nombre%20es%20" + `${nombre.value}` + "%20Vivo%20en%20" + `${direccion.value}` + "%20deseo%20adquirir%20el%20siguiente%20producto\n\n                                                     *                                                               " + "✅" + `${element.nombre}` + `, ${res[3][0].divisa}` + ` ${element.precio}` + "                                                  *"+`${element.imagen1.secure_url}`);
                       }, 500)
           
                   // console.log("btnEnviar22");

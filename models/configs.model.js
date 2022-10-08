@@ -50,6 +50,10 @@ const configsSchema = new mongoose.Schema({
     divisa:{
         type: String,
         trim: true
+    },
+    numeroTelefonico:{
+        type: Number,
+        trim: true
     }
 }, {
     timestamps: true
