@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { renderProdutForm, createNewProduct, renderProducts, renderEditForm, updateProduct, deleteProducts, renderJsonProducts, updateImgProduct } from "../controllers/index.controllers.js";
-import { renderProdutForm2, createNewProduct2, renderProducts2, renderJsonProducts2, renderEditForm2, updateProduct2, deleteProducts2 } from "../controllers/products.controllers.js"
+import { renderProdutForm2, createNewProduct2, renderProducts2, renderJsonProducts2, renderEditForm2, updateProduct2, deleteProducts2, deleteImgs } from "../controllers/products.controllers.js"
 import { renderJsonPortadas, renderPortadasForm, createNewPortada, renderPortadas, renderEditPortadaForm, updatePortadas, deletePortadas } from "../controllers/portadas.controllers.js"
 import { renderCategoriasForm, createNewCategoria, renderCategorias, renderEditCategoriasForm, updateCategorias, deleteCategorias } from "../controllers/categorias.controllers.js"
 import { renderConfigsForm, createNewConfigs, renderConfigs, renderEditConfigsForm, updateConfigs, deleteConfigs } from "../controllers/configs.controllers.js"
@@ -59,6 +59,9 @@ router.put("/products/edit-style/:id", updateProduct2)
 
 // //delete products
 router.delete("/products/delete-style/:id", deleteProducts2)
+
+//delete imgs pequeñas en view products
+router.delete("/products/imgs/:id", deleteImgs)
 
 
 //ROUTES OF PORTADAS
@@ -135,6 +138,9 @@ router.get("/", viewPage)
 router.get("/pedidos", viewPedidos)
 router.post("/pedidos", createPedidos)
 router.delete("/pedidos/:id", deletePedidos)
+
+
+
 
 
 

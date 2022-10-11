@@ -13,7 +13,16 @@
       <th class="text-center" scope="col">Categoria</th>
       <th class="text-center" scope="col">Nombre</th>
       <th class="text-center" scope="col">Precio</th>
-      <th class="text-center" scope="col">Imagen Principal</th>
+      <th class="text-center" scope="col">Imagen Principal1</th>
+      <th class="text-center" scope="col">Imagen Principal2</th>
+      <th class="text-center" scope="col">Imagen Principal3</th>
+      <th class="text-center" scope="col">Imagen Principal4</th>
+      <th class="text-center" scope="col">Imagen Principal5</th>
+      <th class="text-center" scope="col">Img Descripcion1</th>
+      <th class="text-center" scope="col">Img Descripcion2</th>
+      <th class="text-center" scope="col">Img Descripcion3</th>
+      <th class="text-center" scope="col">Img Descripcion4</th>
+      <th class="text-center" scope="col">Img Descripcion5</th>
       <th class="text-center" scope="col">Edit / Delete</th>
 
     </tr>
@@ -32,6 +41,86 @@
 
         <div class="d-flex justify-content-center"> 
           <img src="{{imagen1.secure_url}}" class="rounded-3" width="90" height="55" style="object-fit: cover">
+          {{!-- <a href="{{imagen1.secure_url}}" target="_BLANK" type="button" class="btn btn-success mr-2">View Img1</a> --}}
+          <form method="POST" action="/products/imgs/{{_id}}?_method=DELETE">
+                <input type="hidden" name="_method" value="DELETE">
+                
+                  <button id="botonBorrarImage" type="submit"  style="text-align: center; margin-top: -50px !important; width:20px; height:20px; border-radius: 50%; border: 1px solid transparent; background-color: red; color: white">x
+                  </button>
+               
+
+          </form>
+
+        </div>
+      </td>
+      <td class="text-center">
+
+        <div class="d-flex justify-content-center"> 
+          <img src="{{imagen2.secure_url}}" class="rounded-3" width="90" height="55" style="object-fit: cover">
+          {{!-- <a href="{{imagen1.secure_url}}" target="_BLANK" type="button" class="btn btn-success mr-2">View Img1</a> --}}
+
+        </div>
+      </td>
+      <td class="text-center">
+
+        <div class="d-flex justify-content-center"> 
+          <img src="{{imagen3.secure_url}}" class="rounded-3" width="90" height="55" style="object-fit: cover">
+          {{!-- <a href="{{imagen1.secure_url}}" target="_BLANK" type="button" class="btn btn-success mr-2">View Img1</a> --}}
+
+        </div>
+      </td>
+      <td class="text-center">
+
+        <div class="d-flex justify-content-center"> 
+          <img src="{{imagen4.secure_url}}" class="rounded-3" width="90" height="55" style="object-fit: cover">
+          {{!-- <a href="{{imagen1.secure_url}}" target="_BLANK" type="button" class="btn btn-success mr-2">View Img1</a> --}}
+
+        </div>
+      </td>
+      <td class="text-center">
+
+        <div class="d-flex justify-content-center"> 
+          <img src="{{imagen5.secure_url}}" class="rounded-3" width="90" height="55" style="object-fit: cover">
+          {{!-- <a href="{{imagen1.secure_url}}" target="_BLANK" type="button" class="btn btn-success mr-2">View Img1</a> --}}
+
+        </div>
+      </td>
+      <td class="text-center">
+
+        <div class="d-flex justify-content-center"> 
+          <img src="{{imgDescripcion1.secure_url}}" class="rounded-3" width="90" height="55" style="object-fit: cover">
+          {{!-- <a href="{{imagen1.secure_url}}" target="_BLANK" type="button" class="btn btn-success mr-2">View Img1</a> --}}
+
+        </div>
+      </td>
+      <td class="text-center">
+
+        <div class="d-flex justify-content-center"> 
+          <img src="{{imgDescripcion2.secure_url}}" class="rounded-3" width="90" height="55" style="object-fit: cover">
+          {{!-- <a href="{{imagen1.secure_url}}" target="_BLANK" type="button" class="btn btn-success mr-2">View Img1</a> --}}
+
+        </div>
+      </td>
+      <td class="text-center">
+
+        <div class="d-flex justify-content-center"> 
+          <img src="{{imgDescripcion3.secure_url}}" class="rounded-3" width="90" height="55" style="object-fit: cover">
+          {{!-- <a href="{{imagen1.secure_url}}" target="_BLANK" type="button" class="btn btn-success mr-2">View Img1</a> --}}
+
+        </div>
+      </td>
+      <td class="text-center">
+
+        <div class="d-flex justify-content-center"> 
+          <img src="{{imgDescripcion4.secure_url}}" class="rounded-3" width="90" height="55" style="object-fit: cover">
+          {{!-- <a href="{{imagen1.secure_url}}" target="_BLANK" type="button" class="btn btn-success mr-2">View Img1</a> --}}
+
+        </div>
+      </td>
+      <td class="text-center">
+
+        <div class="d-flex justify-content-center"> 
+          <img src="{{imgDescripcion5.secure_url}}" class="rounded-3" width="90" height="55" style="object-fit: cover">
           {{!-- <a href="{{imagen1.secure_url}}" target="_BLANK" type="button" class="btn btn-success mr-2">View Img1</a> --}}
 
         </div>

@@ -10,10 +10,10 @@ fetch("http://localhost:3001/api2")
 
 const mostrarData = (res) =>{
   console.log(res);
-  console.log(res[0][1].nombre);
-  console.log(res[0][0].precio);
-  console.log(res[2][0].textoPortada1);
-  console.log(res[2].length);
+  // console.log(res[0][1].nombre);
+  // console.log(res[0][0].precio);
+  // console.log(res[2][0].textoPortada1);
+  // console.log(res[2].length);
 
   // nombre pestaña tienda
   const title = document.getElementById("title")
@@ -723,11 +723,11 @@ window.addEventListener("click", function(e){
             fotoFormularioCompra.src = element.imagen1.secure_url
             nombreFormularioCompra.innerHTML = `${element.nombre}`
 
-            element.descuento? precio1FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio*(1-element.descuento)}` : precio1FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio}`;
+            element.descuento != "" ? precio1FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio*(1-element.descuento)}` : precio1FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio}`;
 
-            element.descuento? precio2FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio*(1-element.descuento)}` : precio1FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio}`;
+            element.descuento != "" ? precio2FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio*(1-element.descuento)}` : precio1FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio}`;
 
-            element.descuento? precio3FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio*(1-element.descuento)}` : precio1FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio}`;
+            element.descuento != "" ? precio3FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio*(1-element.descuento)}` : precio1FormularioCompra.innerHTML = `${res[3][0].divisa} ${element.precio}`;
 
 
 
@@ -862,7 +862,7 @@ window.addEventListener("click", function(e){
                       :
                       setTimeout(function() {
                         location.href = ("https://api.whatsapp.com/send?phone="+ `${res[3][0].numeroTelefonico}` + "&text=Hola! 👋 %20Mi%20nombre%20es%20" + `${nombre.value}` + "%20Vivo%20en%20" + `${direccion.value}` + "%20deseo%20adquirir%20el%20siguiente%20producto\n\n                                                     *                                                               " + "✅" + `${element.nombre}` + `, ${res[3][0].divisa}` + ` ${element.precio}` + "                                                  *"+`${element.imagen1.secure_url}`);
-                      }, 500)
+                      }, 700)
           
                   // console.log("btnEnviar22");
                   resultado.innerHTML = "Solicitud enviada correctamente"

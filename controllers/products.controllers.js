@@ -193,7 +193,7 @@ export async function renderEditForm2 (req, res){
 export async function updateProduct2 (req, res){
     try {
         const {id} = req.params
-        // console.log(req.body)
+        // console.log(req.params)
         console.log(req.files, 999)
         const productUpdating = await Product.findByIdAndUpdate(id, req.body, {
           new: true
@@ -203,7 +203,7 @@ export async function updateProduct2 (req, res){
         if (req.files != null) {
             if (productUpdating.imagen1?.public_id) {
                 const result = await deleteImage(productUpdating.imagen1.public_id)
-                // console.log(result,226)
+                console.log(result,226)
             }
             if (productUpdating.imagen2?.public_id) {
                 const result = await deleteImage(productUpdating.imagen2.public_id)
@@ -247,7 +247,7 @@ export async function updateProduct2 (req, res){
         }
         
         if (req.files?.imagen1) {
-            // console.log(req.files.image.tempFilePath, 224)  
+            console.log(req.files, 224)  
             const uploadCloudinary = await uploadImage(req.files.imagen1.tempFilePath)
             
             productUpdating.imagen1 = {
@@ -381,7 +381,7 @@ export async function updateProduct2 (req, res){
 
 //delete products
 export async function deleteProducts2 (req, res){
-
+    
     try {
         const eraser = await Product.findByIdAndDelete(req.params.id)
     
@@ -428,14 +428,17 @@ export async function deleteProducts2 (req, res){
             const result = await deleteImage(eraser.imgDescripcion5.public_id)
             // console.log(result)
         }
-    
+        
         res.redirect("/products-style")
         
     } catch (error) {
         return res.status(500).json({
             "message": error.message
-          }) 
+        }) 
     }
 }
 
+export async function deleteImgs (req, res){
+    res.send("borrar imagen pequeña")
+}
 
