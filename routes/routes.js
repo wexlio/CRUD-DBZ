@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { renderProdutForm, createNewProduct, renderProducts, renderEditForm, updateProduct, deleteProducts, renderJsonProducts, updateImgProduct } from "../controllers/index.controllers.js";
-import { renderProdutForm2, createNewProduct2, renderProducts2, renderJsonProducts2, renderEditForm2, updateProduct2, deleteProducts2, deleteImgs } from "../controllers/products.controllers.js"
+import { renderProdutForm2, createNewProduct2, renderProducts2, renderJsonProducts2, renderEditForm2, updateProduct2, deleteProducts2, deleteImgs1, deleteImgs2, deleteImgs3, deleteImgs4, deleteImgs5, deleteImgDescricion1, deleteImgDescricion2, deleteImgDescricion3, deleteImgDescricion4, deleteImgDescricion5 } from "../controllers/products.controllers.js"
 import { renderJsonPortadas, renderPortadasForm, createNewPortada, renderPortadas, renderEditPortadaForm, updatePortadas, deletePortadas } from "../controllers/portadas.controllers.js"
 import { renderCategoriasForm, createNewCategoria, renderCategorias, renderEditCategoriasForm, updateCategorias, deleteCategorias } from "../controllers/categorias.controllers.js"
 import { renderConfigsForm, createNewConfigs, renderConfigs, renderEditConfigsForm, updateConfigs, deleteConfigs } from "../controllers/configs.controllers.js"
@@ -61,8 +61,16 @@ router.put("/products/edit-style/:id", updateProduct2)
 router.delete("/products/delete-style/:id", deleteProducts2)
 
 //delete imgs pequeñas en view products
-router.delete("/products/imgs/:id", deleteImgs)
-
+router.delete("/products/imgs1/:id", deleteImgs1)
+router.delete("/products/imgs2/:id", deleteImgs2)
+router.delete("/products/imgs3/:id", deleteImgs3)
+router.delete("/products/imgs4/:id", deleteImgs4)
+router.delete("/products/imgs5/:id", deleteImgs5)
+router.delete("/products/imgD1/:id", deleteImgDescricion1)
+router.delete("/products/imgD2/:id", deleteImgDescricion2)
+router.delete("/products/imgD3/:id", deleteImgDescricion3)
+router.delete("/products/imgD4/:id", deleteImgDescricion4)
+router.delete("/products/imgD5/:id", deleteImgDescricion5)
 
 //ROUTES OF PORTADAS
 

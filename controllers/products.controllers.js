@@ -224,24 +224,24 @@ export async function updateProduct2 (req, res){
 
             //---DES2CRIPTIONS IMAGES deletes
 
-            if (productUpdating.imgDescricion1?.public_id) {
-                const result = await deleteImage(productUpdating.imgDescricion1.public_id)
+            if (productUpdating.imgDescripcion1?.public_id) {
+                const result = await deleteImage(productUpdating.imgDescripcion1.public_id)
                 // console.log(result,226)
             }
-            if (productUpdating.imgDescricion2?.public_id) {
-                const result = await deleteImage(productUpdating.imgDescricion2.public_id)
+            if (productUpdating.imgDescripcion2?.public_id) {
+                const result = await deleteImage(productUpdating.imgDescripcion2.public_id)
                 // console.log(result,226)
             }
-            if (productUpdating.imgDescricion3?.public_id) {
-                const result = await deleteImage(productUpdating.imgDescricion3.public_id)
+            if (productUpdating.imgDescripcion3?.public_id) {
+                const result = await deleteImage(productUpdating.imgDescripcion3.public_id)
                 // console.log(result,226)
             }
-            if (productUpdating.imgDescricion4?.public_id) {
-                const result = await deleteImage(productUpdating.imgDescricion4.public_id)
+            if (productUpdating.imgDescripcion4?.public_id) {
+                const result = await deleteImage(productUpdating.imgDescripcion4.public_id)
                 // console.log(result,226)
             }
-            if (productUpdating.imgDescricion5?.public_id) {
-                const result = await deleteImage(productUpdating.imgDescricion5.public_id)
+            if (productUpdating.imgDescripcion5?.public_id) {
+                const result = await deleteImage(productUpdating.imgDescripcion5.public_id)
                 // console.log(result,226)
             }
         }
@@ -438,7 +438,414 @@ export async function deleteProducts2 (req, res){
     }
 }
 
-export async function deleteImgs (req, res){
-    res.send("borrar imagen pequeña")
+export async function deleteImgs1 (req, res){
+    // res.send("borrar imagen pequeña")
+    
+    try {
+        
+        const {id} = req.params
+        // console.log(req.params)
+        console.log(req.files, 999)
+        const productUpdating = await Product.findByIdAndUpdate(id, req.body, {
+          new: true
+        })
+        
+        if (productUpdating.imagen1?.secure_url !== "" && productUpdating.imagen1.public_id) {
+            
+            const result = await deleteImage(productUpdating.imagen1.public_id)
+            console.log(result,226)
+            
+            productUpdating.imagen1 = {
+                public_id: "",
+                secure_url: ""
+            }
+            
+            await productUpdating.save()
+        }
+        else {
+            null
+            return console.log("Image litle does not exit")
+        } 
+
+        
+        console.log(productUpdating,88)
+        
+        res.redirect("/products-style")
+        
+    } catch (error) {
+        return res.status(500).json({
+            "message": error.message
+        }) 
+    }
+
+}
+export async function deleteImgs2 (req, res){
+    // res.send("borrar imagen pequeña")
+    
+    try {
+        
+        const {id} = req.params
+        // console.log(req.params)
+        console.log(req.files, 999)
+        const productUpdating = await Product.findByIdAndUpdate(id, req.body, {
+          new: true
+        })
+        
+        if (productUpdating.imagen2?.secure_url !== "" && productUpdating.imagen2.public_id) {
+            
+            const result = await deleteImage(productUpdating.imagen2.public_id)
+            console.log(result,226)
+            
+            productUpdating.imagen2 = {
+                public_id: "",
+                secure_url: ""
+            }
+            
+            await productUpdating.save()
+        }
+        else {
+            null
+            return console.log("Image litle does not exit")
+        } 
+
+        
+        console.log(productUpdating,88)
+        
+        res.redirect("/products-style")
+        
+    } catch (error) {
+        return res.status(500).json({
+            "message": error.message
+        }) 
+    }
+
+}
+export async function deleteImgs3 (req, res){
+    // res.send("borrar imagen pequeña")
+    
+    try {
+        
+        const {id} = req.params
+        // console.log(req.params)
+        console.log(req.files, 999)
+        const productUpdating = await Product.findByIdAndUpdate(id, req.body, {
+          new: true
+        })
+        
+        if (productUpdating.imagen3?.secure_url !== "" && productUpdating.imagen3.public_id) {
+            
+            const result = await deleteImage(productUpdating.imagen3.public_id)
+            console.log(result,226)
+            
+            productUpdating.imagen3 = {
+                public_id: "",
+                secure_url: ""
+            }
+            
+            await productUpdating.save()
+        }
+        else {
+            null
+            return console.log("Image litle does not exit")
+        } 
+
+        
+        console.log(productUpdating,88)
+        
+        res.redirect("/products-style")
+        
+    } catch (error) {
+        return res.status(500).json({
+            "message": error.message
+        }) 
+    }
+
+}
+export async function deleteImgs4 (req, res){
+    // res.send("borrar imagen pequeña")
+    
+    try {
+        
+        const {id} = req.params
+        // console.log(req.params)
+        console.log(req.files, 999)
+        const productUpdating = await Product.findByIdAndUpdate(id, req.body, {
+          new: true
+        })
+        
+        if (productUpdating.imagen4?.secure_url !== "" && productUpdating.imagen4.public_id) {
+            
+            const result = await deleteImage(productUpdating.imagen4.public_id)
+            console.log(result,226)
+            
+            productUpdating.imagen4 = {
+                public_id: "",
+                secure_url: ""
+            }
+            
+            await productUpdating.save()
+        }
+        else {
+            null
+            return console.log("Image litle does not exit")
+        } 
+
+        
+        console.log(productUpdating,88)
+        
+        res.redirect("/products-style")
+        
+    } catch (error) {
+        return res.status(500).json({
+            "message": error.message
+        }) 
+    }
+
+}
+export async function deleteImgs5 (req, res){
+    // res.send("borrar imagen pequeña")
+    
+    try {
+        
+        const {id} = req.params
+        // console.log(req.params)
+        console.log(req.files, 999)
+        const productUpdating = await Product.findByIdAndUpdate(id, req.body, {
+          new: true
+        })
+        
+        if (productUpdating.imagen5?.secure_url !== "" && productUpdating.imagen5.public_id) {
+            
+            const result = await deleteImage(productUpdating.imagen5.public_id)
+            console.log(result,226)
+            
+            productUpdating.imagen5 = {
+                public_id: "",
+                secure_url: ""
+            }
+            
+            await productUpdating.save()
+        }
+        else {
+            null
+            return console.log("Image litle does not exit")
+        } 
+
+        
+        console.log(productUpdating,88)
+        
+        res.redirect("/products-style")
+        
+    } catch (error) {
+        return res.status(500).json({
+            "message": error.message
+        }) 
+    }
+
+}
+export async function deleteImgDescricion1 (req, res){
+    // res.send("borrar imagen pequeña")
+    
+    try {
+        
+        const {id} = req.params
+        // console.log(req.params)
+        console.log(req.files, 999)
+        const productUpdating = await Product.findByIdAndUpdate(id, req.body, {
+          new: true
+        })
+        
+        if (productUpdating.imgDescripcion1?.secure_url !== "" && productUpdating.imgDescripcion1.public_id) {
+            
+            const result = await deleteImage(productUpdating.imgDescripcion1.public_id)
+            console.log(result,226)
+            
+            productUpdating.imgDescripcion1 = {
+                public_id: "",
+                secure_url: ""
+            }
+            
+            await productUpdating.save()
+        }
+        else {
+            null
+            return console.log("Image litle does not exit")
+        } 
+
+        
+        console.log(productUpdating,88)
+        
+        res.redirect("/products-style")
+        
+    } catch (error) {
+        return res.status(500).json({
+            "message": error.message
+        }) 
+    }
+
+}
+export async function deleteImgDescricion2 (req, res){
+    // res.send("borrar imagen pequeña")
+    
+    try {
+        
+        const {id} = req.params
+        // console.log(req.params)
+        console.log(req.files, 999)
+        const productUpdating = await Product.findByIdAndUpdate(id, req.body, {
+          new: true
+        })
+        
+        if (productUpdating.imgDescripcion2?.secure_url !== "" && productUpdating.imgDescripcion2.public_id) {
+            
+            const result = await deleteImage(productUpdating.imgDescripcion2.public_id)
+            console.log(result,226)
+            
+            productUpdating.imgDescripcion2 = {
+                public_id: "",
+                secure_url: ""
+            }
+            
+            await productUpdating.save()
+        }
+        else {
+            null
+            return console.log("Image litle does not exit")
+        } 
+
+        
+        console.log(productUpdating,88)
+        
+        res.redirect("/products-style")
+        
+    } catch (error) {
+        return res.status(500).json({
+            "message": error.message
+        }) 
+    }
+
+}
+export async function deleteImgDescricion3 (req, res){
+    // res.send("borrar imagen pequeña")
+    
+    try {
+        
+        const {id} = req.params
+        // console.log(req.params)
+        console.log(req.files, 999)
+        const productUpdating = await Product.findByIdAndUpdate(id, req.body, {
+          new: true
+        })
+        
+        if (productUpdating.imgDescripcion3?.secure_url !== "" && productUpdating.imgDescripcion3.public_id) {
+            
+            const result = await deleteImage(productUpdating.imgDescripcion3.public_id)
+            console.log(result,226)
+            
+            productUpdating.imgDescripcion3 = {
+                public_id: "",
+                secure_url: ""
+            }
+            
+            await productUpdating.save()
+        }
+        else {
+            null
+            return console.log("Image litle does not exit")
+        } 
+
+        
+        console.log(productUpdating,88)
+        
+        res.redirect("/products-style")
+        
+    } catch (error) {
+        return res.status(500).json({
+            "message": error.message
+        }) 
+    }
+
+}
+export async function deleteImgDescricion4 (req, res){
+    // res.send("borrar imagen pequeña")
+    
+    try {
+        
+        const {id} = req.params
+        // console.log(req.params)
+        console.log(req.files, 999)
+        const productUpdating = await Product.findByIdAndUpdate(id, req.body, {
+          new: true
+        })
+        
+        if (productUpdating.imgDescripcion4?.secure_url !== "" && productUpdating.imgDescripcion4.public_id) {
+            
+            const result = await deleteImage(productUpdating.imgDescripcion4.public_id)
+            console.log(result,226)
+            
+            productUpdating.imgDescripcion4 = {
+                public_id: "",
+                secure_url: ""
+            }
+            
+            await productUpdating.save()
+        }
+        else {
+            null
+            return console.log("Image litle does not exit")
+        } 
+
+        
+        console.log(productUpdating,88)
+        
+        res.redirect("/products-style")
+        
+    } catch (error) {
+        return res.status(500).json({
+            "message": error.message
+        }) 
+    }
+
+}
+export async function deleteImgDescricion5 (req, res){
+    // res.send("borrar imagen pequeña")
+    
+    try {
+        
+        const {id} = req.params
+        // console.log(req.params)
+        console.log(req.files, 999)
+        const productUpdating = await Product.findByIdAndUpdate(id, req.body, {
+          new: true
+        })
+        
+        if (productUpdating.imgDescripcion5?.secure_url !== "" && productUpdating.imgDescripcion5.public_id) {
+            
+            const result = await deleteImage(productUpdating.imgDescripcion5.public_id)
+            console.log(result,226)
+            
+            productUpdating.imgDescripcion5 = {
+                public_id: "",
+                secure_url: ""
+            }
+            
+            await productUpdating.save()
+        }
+        else {
+            null
+            return console.log("Image litle does not exit")
+        } 
+
+        
+        console.log(productUpdating,88)
+        
+        res.redirect("/products-style")
+        
+    } catch (error) {
+        return res.status(500).json({
+            "message": error.message
+        }) 
+    }
+
 }
 

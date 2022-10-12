@@ -525,17 +525,17 @@ window.addEventListener("click", function(e){
         const imagen4 = document.querySelector(".imagen4")
         const imagen5 = document.querySelector(".imagen5")
         
-        element.imgDescripcion1? console.log("si existe") : displayNone1.remove()
-        element.imgDescripcion2? console.log("si existe") : displayNone2.remove()
-        element.imgDescripcion3? console.log("si existe") : displayNone3.remove()
-        element.imgDescripcion4? console.log("si existe") : displayNone4.remove()
-        element.imgDescripcion5? console.log("si existe") : displayNone5.remove()
+        element.imgDescripcion1 && element.imgDescripcion1.secure_url != ""? console.log("si existe") : displayNone1.remove()
+        element.imgDescripcion2 && element.imgDescripcion2.secure_url != ""? console.log("si existe") : displayNone2.remove()
+        element.imgDescripcion3 && element.imgDescripcion3.secure_url != ""? console.log("si existe") : displayNone3.remove()
+        element.imgDescripcion4 && element.imgDescripcion4.secure_url != ""? console.log("si existe") : displayNone4.remove()
+        element.imgDescripcion5 && element.imgDescripcion5.secure_url != ""? console.log("si existe") : displayNone5.remove()
         
-        element.descripcion1? console.log("si existe") : descripcion1.remove()
-        element.descripcion2? console.log("si existe") : descripcion2.remove()
-        element.descripcion3? console.log("si existe") : descripcion3.remove()
-        element.descripcion4? console.log("si existe") : descripcion4.remove()
-        element.descripcion5? console.log("si existe") : descripcion5.remove()
+        element.descripcion1 && element.descripcion1 != ""? console.log("si existe") : descripcion1.remove()
+        element.descripcion2 && element.descripcion2 != ""? console.log("si existe") : descripcion2.remove()
+        element.descripcion3 && element.descripcion3 != ""? console.log("si existe") : descripcion3.remove()
+        element.descripcion4 && element.descripcion4 != ""? console.log("si existe") : descripcion4.remove()
+        element.descripcion5 && element.descripcion5 != ""? console.log("si existe") : descripcion5.remove()
         
         // element.imagen2? console.log("si existe") : imagen2.remove()
         // element.imagen3? console.log("si existe") : imagen3.remove()
@@ -544,8 +544,8 @@ window.addEventListener("click", function(e){
         
         const disclaimers = document.querySelector(".boton-formulario2")
         
-        element.descripcion1? console.log("si existe") : disclaimers.remove()
-        element.imgDescripcion1? console.log("si existe") : disclaimers.remove()
+        element.descripcion1 && element.descripcion1 != ""? console.log("si existe") : disclaimers.remove()
+        element.imgDescripcion1 && element.imgDescripcion1.secure_url != ""? console.log("si existe") : disclaimers.remove()
         
         const mostrarFooter1 = document.getElementById("footer21")
         const mostrarFooter2 = document.getElementById("footer22")
