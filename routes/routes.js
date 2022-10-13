@@ -4,6 +4,7 @@ import { renderProdutForm2, createNewProduct2, renderProducts2, renderJsonProduc
 import { renderJsonPortadas, renderPortadasForm, createNewPortada, renderPortadas, renderEditPortadaForm, updatePortadas, deletePortadas } from "../controllers/portadas.controllers.js"
 import { renderCategoriasForm, createNewCategoria, renderCategorias, renderEditCategoriasForm, updateCategorias, deleteCategorias } from "../controllers/categorias.controllers.js"
 import { renderConfigsForm, createNewConfigs, renderConfigs, renderEditConfigsForm, updateConfigs, deleteConfigs } from "../controllers/configs.controllers.js"
+import { renderformForm, createNewform, renderform, renderEditformForm, updateform, deleteform } from "../controllers/form.controllers.js"
 import { viewPage } from "../controllers/viewPage.controllers.js"
 import { viewPedidos, createPedidos, deletePedidos } from "../controllers/pedidos.controllers.js"
 
@@ -147,8 +148,24 @@ router.get("/pedidos", viewPedidos)
 router.post("/pedidos", createPedidos)
 router.delete("/pedidos/:id", deletePedidos)
 
+//view config formularios
 
+router.get("/form-style/add", renderformForm)
 
+router.post("/form-style/add", createNewform)
+
+//get all configs(s)
+router.get("/form-style", renderform)
+
+//edit configs
+router.get("/form/edit-style/:id", renderEditformForm)
+
+router.put("/form/edit-style/:id", updateform)
+
+// router.put("/products/edit/img-style/:id", updateImgProduct2)
+
+// //delete configs
+router.delete("/form/delete-style/:id", deleteform)
 
 
 

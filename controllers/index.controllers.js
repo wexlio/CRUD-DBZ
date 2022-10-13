@@ -3,6 +3,7 @@ import Product from "../models/product.model.js"
 import Portada from "../models/portada.model.js"
 import Categoria from "../models/categoria.model.js"
 import Configs from "../models/configs.model.js"
+import Form from "../models/form.model.js"
 import {uploadImage, deleteImage, updateImage} from "../utils/cloudinary.js"
 import fs from "fs-extra"
 // import {v2 as cloudinary} from "../utils/cloudinary.js"
@@ -16,11 +17,13 @@ export async function renderJsonProducts (req, res){
         const portadas = await Portada.find()
         const categorias = await Categoria.find()
         const configs = await Configs.find()
+        const forms = await Form.find()
         var apiPrincipal = [];
         apiPrincipal.push(products);
         apiPrincipal.push(categorias);
         apiPrincipal.push(portadas);
         apiPrincipal.push(configs);
+        apiPrincipal.push(forms);
         res.send(apiPrincipal)
 
         // res.send(portadas)
