@@ -148,6 +148,8 @@ router.get("/pedidos", viewPedidos)
 router.post("/pedidos", createPedidos)
 router.delete("/pedidos/:id", deletePedidos)
 
+// ----------------------------fiin
+
 //view config formularios
 
 router.get("/form-style/add", renderformForm)

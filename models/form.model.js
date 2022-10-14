@@ -8,7 +8,7 @@ const formSchema = new mongoose.Schema({
         require: true
     },
     celularCliente: {
-        type: Number,
+        type: String,
         trim: true
     },
     correoCliente:{

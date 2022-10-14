@@ -762,6 +762,40 @@ window.addEventListener("click", function(e){
             const direccion = document.getElementById("direccion");
             const referencia = document.getElementById("referencia");
             
+            const divNombre = document.querySelector(".input-nombre")
+            const divCelular = document.querySelector(".input-celular")
+            const divCorreo = document.querySelector(".input-correo")
+            const divDireccion = document.querySelector(".input-direccion")
+            const divReferencia = document.querySelector(".input-referencia")
+            
+            const spanNombre = document.getElementById("input-nombre");
+            const spanCelular = document.getElementById("input-celular");
+            const spanCorreo = document.getElementById("input-correo");
+            const spanDireccion = document.getElementById("input-direccion");
+            const spanReferencia = document.getElementById("input-referencia");
+            const gridForm = document.getElementById("parte3");
+
+            if (res[4][0]) {
+
+              console.log(res[4][0])
+              
+              let noVacios = -3;
+              for(let prop of Object.values(res[4][0])){
+                prop == "" ? noVacios = noVacios : noVacios = noVacios + 1;
+                console.log(prop)
+                
+              }
+              gridForm.style.gridTemplateRows = `repeat(${noVacios}, 80px)`;
+              console.log(noVacios, 777799988)
+
+
+              res[4][0].nombreCliente && res[4][0].nombreCliente != "" ? spanNombre.innerHTML = res[4][0].nombreCliente : divNombre?.remove()
+              res[4][0].celularCliente && res[4][0].celularCliente != "" ? spanCelular.innerHTML = res[4][0].celularCliente : divCelular?.remove()
+              res[4][0].correoCliente && res[4][0].correoCliente != "" ? spanCorreo.innerHTML = res[4][0].correoCliente : divCorreo?.remove()
+              res[4][0].direccionCliente && res[4][0].direccionCliente != "" ? spanDireccion.innerHTML = res[4][0].direccionCliente : divDireccion?.remove()
+              res[4][0].referenciaCliente && res[4][0].referenciaCliente != "" ? spanReferencia.innerHTML = res[4][0].referenciaCliente : divReferencia?.remove()
+            }
+
 
             btnEnviar?.addEventListener("click", async (e)=>{
               e.preventDefault();
