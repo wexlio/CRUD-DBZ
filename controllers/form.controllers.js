@@ -64,9 +64,9 @@ export async function createNewform (req, res) {
 
     try {
         
-        const { nombreCliente, celularCliente, correoCliente, direccionCliente, referenciaCliente } = req.body
+        const { nombreCliente, celularCliente, correoCliente, direccionCliente, referenciaCliente, botonAntes, botonFinal } = req.body
 
-        const forms = new Form ({ nombreCliente, celularCliente, correoCliente, direccionCliente, referenciaCliente })
+        const forms = new Form ({ nombreCliente, celularCliente, correoCliente, direccionCliente, referenciaCliente, botonAntes, botonFinal })
 
         await forms.save();
     

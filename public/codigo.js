@@ -1,6 +1,7 @@
 //----inicio del fecht para traer el objeto de google sheets
 // https://d3c6bcc0-45d1-4736-8bb5-ac2c75e20ae8.id.repl.co/api2
 // http://localhost:3001/api2
+//"https://MyBackendWexlio.diegoespinoza16.repl.co/api2"
 
 // const { time } = require("console");
 
@@ -60,7 +61,7 @@ encabezado.innerHTML = `${res[3][0].nombreTienda}`
     slider123.innerHTML += `<div class="slider-seccion" id="slider-seccion">
 		 					<h2 id="titulos-portada">${element.textoPortada1}</h2>
               <div class="imgPortada55">
-		 					  <img src="${element.imgPortada1.secure_url}" id="slider-img">
+		 					  <img src="${element.imgPortada1.secure_url}" id="slider-img" style="with:100%; height: 250px">
               </div>
 		 				</div>`;
   }); 
@@ -112,19 +113,20 @@ encabezado.innerHTML = `${res[3][0].nombreTienda}`
 	</div>`;
   }); 
   // -------------------categorias fiN------------------
-
+  
   // ----Mostrar primeros productos i
   let a = 1;
-
+  
   res[0].forEach(element => {
     const main = document.getElementById("main");
-    if (element.categoria === res[1][0].textoCategoria) {
-      main.innerHTML += `<div class="hover ordenar-altura" value="producto${a}" id="fotos">
+    if (element.categoria === res[1][0].textoCategoria && element.descuento != null) {
+      main.innerHTML += 
+      `<div class="hover ordenar-altura" value="producto${a}" id="fotos">
+        <div class="liga-descuento"></div>        
 				<div class="slider" id="fotos">
 					<img class="${a - 1} redirect imgs ostia ${
             element.imagen1.secure_url
       } ${element._id}" src="${element.imagen1.secure_url}" id="redirect">
-						<div class="liga-descuento"></div>
 				</div>	
 				<p class="${a - 1}redirect pila ostia" id="redirect">${
           element.nombre
@@ -136,11 +138,68 @@ encabezado.innerHTML = `${res[3][0].nombreTienda}`
 					<button class="boton111 0 ${element.imagen1.secure_url} ${element._id}" type="button">Ver detalles</button>
 				</b>	
 			</div>`;
-    } else {
-      null;
+      
+      
+      console.log(element.descuento)
+      
+    } else if (element.categoria === res[1][0].textoCategoria && element.descuento == null) {
+      main.innerHTML += 
+      `<div class="hover ordenar-altura" value="producto${a}" id="fotos">
+              
+				<div class="slider" id="fotos">
+					<img class="${a - 1} redirect imgs ostia ${
+            element.imagen1.secure_url
+      } ${element._id}" src="${element.imagen1.secure_url}" id="redirect">
+				</div>	
+				<p class="${a - 1}redirect pila ostia" id="redirect">${
+          element.nombre
+      }</p>
+				<b class="flexito redirect" id="redirect">
+					<h4 class="precio redirect" id="redirect">${divisa} ${
+            element.precio
+      }</h4>
+					<button class="boton111 0 ${element.imagen1.secure_url} ${element._id}" type="button">Ver detalles</button>
+				</b>	
+			</div>`;
+      
+      
+      console.log(element.descuento)
+      
     }
+    
   }); 
   // ------F-----
+
+  const liga11 = document.querySelectorAll(".liga-descuento")
+  liga11.forEach(element=>{
+
+      element.className = "ligades"
+
+  })
+
+    const ligades = document.querySelectorAll(".ligades")
+   
+    ligades.forEach(element=>{
+      
+      element.innerHTML = `-%`
+      element.style.width = "25px"
+      element.style.height = "30px"
+      element.style.background = "#ca2f11"
+      element.style.position = "relative"
+      element.style.margin = "0 90% -30px 5px"
+      element.style.borderRadius = "10px"
+      element.style.textAling = "center"
+      element.style.color = "#fff"
+      element.style.padding = "2.3px 2px 10px 2px"
+      element.style.paddingBottom = "5px"       
+
+      })
+    
+      
+
+    
+
+
   // -------iNICIO SLIDER PORTADA-----
 
   const slider123 = document.querySelector("#slider123");
@@ -272,13 +331,34 @@ encabezado.innerHTML = `${res[3][0].nombreTienda}`
 
       await res[0].forEach(element => {
         const item = document.createElement("P");
-        if (element.categoria == a) {
+        if (element.categoria == a && element.descuento != null) {
           item.innerHTML += `<div class="hover ordenar-altura" value="producto${a}" id="fotos">
+          <div class="liga-descuento"></div>  
 							<div class="slider" id="fotos">
 								<img class="${b} redirect imgs ostia ${
                   element.imagen1.secure_url
           } ${element._id}" src="${element.imagen1.secure_url}" id="redirect">
-									<div class="liga-descuento"></div>
+									
+							</div>	
+							<p class="${b} redirect pila ostia" id="redirect">${
+                element.nombre
+          }</p>
+							<b class="flexito redirect" id="redirect">
+								<h4 class="precio redirect" id="redirect">${divisa} ${
+                  element.precio
+          }</h4>
+								<button class="boton111 0 ${element.imagen1.secure_url} ${element._id}" type="button">Ver detalles</button>
+							</b>	
+						</div>`;
+          fragmento.appendChild(item);
+        } else if (element.categoria == a && element.descuento == null) {
+          item.innerHTML += `<div class="hover ordenar-altura" value="producto${a}" id="fotos">
+           
+							<div class="slider" id="fotos">
+								<img class="${b} redirect imgs ostia ${
+                  element.imagen1.secure_url
+          } ${element._id}" src="${element.imagen1.secure_url}" id="redirect">
+									
 							</div>	
 							<p class="${b} redirect pila ostia" id="redirect">${
                 element.nombre
@@ -293,9 +373,35 @@ encabezado.innerHTML = `${res[3][0].nombreTienda}`
           fragmento.appendChild(item);
         }
         main.appendChild(fragmento);
+        
+        const liga11 = document.querySelectorAll(".liga-descuento")
+        liga11.forEach(element=>{
+      
+            element.className = "ligades"
+      
+        })
+      
+        const ligades = document.querySelectorAll(".ligades")
+      
+        ligades.forEach(element=>{
+          
+          element.innerHTML = `-%`
+          element.style.width = "25px"
+          element.style.height = "30px"
+          element.style.background = "#ca2f11"
+          element.style.position = "relative"
+          element.style.margin = "0 90% -30px 5px"
+          element.style.borderRadius = "10px"
+          element.style.textAling = "center"
+          element.style.color = "#fff"
+          element.style.padding = "2.3px 2px 10px 2px"
+          element.style.paddingBottom = "5px"       
+      
+          })
       }); 
     }
   });
+
 
   //---CREACION DE PRODUCTOS DINAMICOS POR CATEGORIA FIN----
 
@@ -377,8 +483,8 @@ window.addEventListener("click", function(e){
   console.log(classSelect2)
   const cerrarModal = select.classList.item(0);
   console.log(cerrarModal)
-  const disclaimer11 = res[3][0].imgDisclaimer1.secure_url
-  const disclaimer12 = res[3][0].imgDisclaimer2.secure_url
+  const disclaimer11 = res[3][0].imgDisclaimer1?.secure_url
+  const disclaimer12 = res[3][0].imgDisclaimer2?.secure_url
 
   
   res[0].forEach(element=>{
@@ -441,12 +547,12 @@ window.addEventListener("click", function(e){
               </div>
 
               <div class="boton-formulario1" id="boton-formulario1">
-                <input class="boton" type="submit" value="REALIZAR PEDIDO Y PAGAR EN CASA" id="btn-enviar1">
+                <input class="boton botonAntes1" type="submit" value="REALIZAR PEDIDO" id="btn-enviar1">
               </div>	
 
               <div class="grids container-descriptions">
 
-                <h3 id="descripcion1">${element?.descripcion1}</h3>
+                <h3 id="descripcion1" style="margin-top: 30px">${element?.descripcion1}</h3>
                 <img src="${element.imgDescripcion1?.secure_url}" alt="" class="img-sec11 display11" id="img-sec11">
                 <h3 id="descripcion2">${element?.descripcion2}</h3>
                 <img src="${element?.imgDescripcion2?.secure_url}" alt="" class="img-sec11 display11" id="img-sec12">
@@ -463,7 +569,7 @@ window.addEventListener("click", function(e){
           </div>
 
           <div class="boton-formulario2" id="boton-formulario2">
-            <input class="boton" type="submit" value="REALIZAR PEDIDO Y PAGAR EN CASA" id="btn-enviar2">
+            <input class="boton botonAntes2" type="submit" value="REALIZAR PEDIDO" id="btn-enviar2">
           </div>	
 
           <div class="disclaimer" id="disclaimer">
@@ -524,7 +630,12 @@ window.addEventListener("click", function(e){
         const imagen3 = document.querySelector(".imagen3");
         const imagen4 = document.querySelector(".imagen4")
         const imagen5 = document.querySelector(".imagen5")
-        
+
+        const botonAntes1 = document.querySelector(".botonAntes1")
+        const botonAntes2 = document.querySelector(".botonAntes2")
+
+        const botonFinal = document.querySelector(".botonFinal")
+
         element.imgDescripcion1 && element.imgDescripcion1.secure_url != ""? console.log("si existe") : displayNone1.remove()
         element.imgDescripcion2 && element.imgDescripcion2.secure_url != ""? console.log("si existe") : displayNone2.remove()
         element.imgDescripcion3 && element.imgDescripcion3.secure_url != ""? console.log("si existe") : displayNone3.remove()
@@ -536,6 +647,13 @@ window.addEventListener("click", function(e){
         element.descripcion3 && element.descripcion3 != ""? console.log("si existe") : descripcion3.remove()
         element.descripcion4 && element.descripcion4 != ""? console.log("si existe") : descripcion4.remove()
         element.descripcion5 && element.descripcion5 != ""? console.log("si existe") : descripcion5.remove()
+
+        console.log(res[4][0].botonAntes, 999999)
+
+        res[4][0].botonAntes && res[4][0].botonAntes != ""? botonAntes1.value = res[4][0].botonAntes : null
+        res[4][0].botonAntes && res[4][0].botonAntes != ""? botonAntes2.value = res[4][0].botonAntes : null
+
+        botonFinal && res[4][0].botonFinal && res[4][0].botonFinal != ""? botonFinal.value = res[4][0].botonFinal : null
         
         // element.imagen2? console.log("si existe") : imagen2.remove()
         // element.imagen3? console.log("si existe") : imagen3.remove()
@@ -572,7 +690,7 @@ window.addEventListener("click", function(e){
 
         const mainImg = document.querySelector(".imagen1");
         const thumbnails = document.querySelectorAll(".img-sec");
-        
+        //--------thumb
         thumbnails.forEach(thumb =>{
           thumb.addEventListener("click", function(){
             mainImg.src = thumb.src;
@@ -779,7 +897,7 @@ window.addEventListener("click", function(e){
 
               console.log(res[4][0])
               
-              let noVacios = -3;
+              let noVacios = -5;
               for(let prop of Object.values(res[4][0])){
                 prop == "" ? noVacios = noVacios : noVacios = noVacios + 1;
                 console.log(prop)
@@ -809,18 +927,6 @@ window.addEventListener("click", function(e){
                             celular.value[0] != 9){
                   error[0] = true;
                   error[1] = "El numero es invalido";
-                  return error;
-                } else if (direccion.value.length < 3) {
-                  error[0] = true;
-                  error[1] = "La direccion es invalida";
-                  return error;
-                } else if (correo.value.length < 3) {
-                  error[0] = true;
-                  error[1] = "El correo es invalido";
-                  return error;
-                } else if (referencia.value.length < 3) {
-                  error[0] = true;
-                  error[1] = "La referencia es invalida";
                   return error;
                 }
 

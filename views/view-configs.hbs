@@ -71,6 +71,12 @@
         <div class="d-flex justify-content-center"> 
           <img src="{{imgDisclaimer1.secure_url}}" class="rounded-3" width="60" height="60" style="object-fit: cover">
           {{!-- <a href="{{imagen1.secure_url}}" target="_BLANK" type="button" class="btn btn-success mr-2">View Img1</a> --}}
+          <form method="POST" action="/products/imgsDisclaimer1/{{_id}}?_method=DELETE">
+                <input type="hidden" name="_method" value="DELETE">
+                
+                  <button id="botonBorrarImage" type="submit" style="margin-left: 10px; text-align: center; margin-top: -50px !important; width:20px; height:20px; border-radius: 50%; border: 1px solid transparent; background-color: red; color: white">x
+                  </button>
+          </form>
 
         </div>
       </td>
@@ -80,6 +86,12 @@
         <div class="d-flex justify-content-center"> 
           <img src="{{imgDisclaimer2.secure_url}}" class="rounded-3" width="60" height="60" style="object-fit: cover">
           {{!-- <a href="{{imagen1.secure_url}}" target="_BLANK" type="button" class="btn btn-success mr-2">View Img1</a> --}}
+          <form method="POST" action="/products/imgsDisclaimer2/{{_id}}?_method=DELETE">
+                <input type="hidden" name="_method" value="DELETE">
+                
+                  <button id="botonBorrarImage" type="submit" style="margin-left: 10px; text-align: center; margin-top: -50px !important; width:20px; height:20px; border-radius: 50%; border: 1px solid transparent; background-color: red; color: white">x
+                  </button>
+          </form>
 
         </div>
       </td>

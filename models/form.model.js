@@ -22,6 +22,14 @@ const formSchema = new mongoose.Schema({
     referenciaCliente:{
         type: String,
         trim: true
+    },
+    botonAntes:{
+        type: String,
+        trim: true
+    },
+    botonFinal:{
+        type: String,
+        trim: true
     }
 }, {
     timestamps: true

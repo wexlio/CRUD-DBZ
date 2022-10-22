@@ -3,7 +3,7 @@ import { renderProdutForm, createNewProduct, renderProducts, renderEditForm, upd
 import { renderProdutForm2, createNewProduct2, renderProducts2, renderJsonProducts2, renderEditForm2, updateProduct2, deleteProducts2, deleteImgs1, deleteImgs2, deleteImgs3, deleteImgs4, deleteImgs5, deleteImgDescricion1, deleteImgDescricion2, deleteImgDescricion3, deleteImgDescricion4, deleteImgDescricion5 } from "../controllers/products.controllers.js"
 import { renderJsonPortadas, renderPortadasForm, createNewPortada, renderPortadas, renderEditPortadaForm, updatePortadas, deletePortadas } from "../controllers/portadas.controllers.js"
 import { renderCategoriasForm, createNewCategoria, renderCategorias, renderEditCategoriasForm, updateCategorias, deleteCategorias } from "../controllers/categorias.controllers.js"
-import { renderConfigsForm, createNewConfigs, renderConfigs, renderEditConfigsForm, updateConfigs, deleteConfigs } from "../controllers/configs.controllers.js"
+import { renderConfigsForm, createNewConfigs, renderConfigs, renderEditConfigsForm, updateConfigs, deleteConfigs, deleteDisclaimer1, deleteDisclaimer2 } from "../controllers/configs.controllers.js"
 import { renderformForm, createNewform, renderform, renderEditformForm, updateform, deleteform } from "../controllers/form.controllers.js"
 import { viewPage } from "../controllers/viewPage.controllers.js"
 import { viewPedidos, createPedidos, deletePedidos } from "../controllers/pedidos.controllers.js"
@@ -136,6 +136,8 @@ router.put("/configs/edit-style/:id", updateConfigs)
 // //delete configs
 router.delete("/configs/delete-style/:id", deleteConfigs)
 
+router.delete("/products/imgsDisclaimer1/:id", deleteDisclaimer1)
+router.delete("/products/imgsDisclaimer2/:id", deleteDisclaimer2)
 
 // View page 
 

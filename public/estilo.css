@@ -178,7 +178,7 @@ header{
 	position: relative;
 	z-index: 2;
 	text-align: center;
-	top: 50%;
+	top: 45%;
 	transform: translate(0%, -50%);
 	color: rgb(255, 255, 255);
 	background-color: rgba(0,0,0,0.3);
@@ -225,8 +225,10 @@ header{
 
 #what{
 	height: 13px;
-	width: 25px;
+	width: 13px;
 	object-fit: cover;
+	border-radius: 50%;
+	margin-top: 2px
 }
 
 .logo-principal{
@@ -647,9 +649,9 @@ footer div:nth-child(1){
 	transform: translateY(0%);
 }
 
-.modal-close{
-	/*transform: translateY(-200%);*/
-}
+/* .modal-close{
+	transform: translateY(-200%);
+} */
 
 .cerrar-modal{
 	position: absolute;
@@ -1306,6 +1308,7 @@ form div img {
 
 .container-descriptions{
 	text-align: center;
+	color: black;
 	/* margin-left: -200px; */
 }
 
@@ -1550,3 +1553,38 @@ form div img {
 	  align-content: center;
 	  justify-content: center;
   }
+
+
+  /* liga descuento */
+
+  /* .ligades{
+	width: 50px;
+	height: 120px;
+	background-color: #ee573a;
+	top: -10px;
+	right: 100px;
+  }
+
+  .ligades:before{
+	content: "";
+	position: absolute;
+	top: 0;
+	right: -10px;
+	border-left: 5px solid #ca2f11;
+	border-right: 5px solid transparent;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid #ca2f11;
+
+  }
+
+  .ligades:before{
+	content: "";
+	position: absolute;
+	bottom: -1px;
+	left: 0;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-top: 25px solid transparent;
+	border-bottom: 25px solid #fff;
+
+  } */

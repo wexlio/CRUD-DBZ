@@ -272,6 +272,88 @@ export async function deleteConfigs (req, res) {
 
 }
 
+export async function deleteDisclaimer1 (req, res){
+    // res.send("borrar imagen pequeña")
+    
+    try {
+        
+        const {id} = req.params
+        // console.log(req.params)
+        console.log(req.files, 999)
+        const confingUpdating = await Configs.findByIdAndUpdate(id, req.body, {
+          new: true
+        })
+        
+        if (confingUpdating.imgDisclaimer1?.secure_url !== "" && confingUpdating.imgDisclaimer1.public_id) {
+            
+            const result = await deleteImage(confingUpdating.imgDisclaimer1.public_id)
+            console.log(result,226)
+            
+            confingUpdating.imgDisclaimer1 = {
+                public_id: "",
+                secure_url: ""
+            }
+            
+            await confingUpdating.save()
+        }
+        else {
+            null
+            return console.log("Image litle does not exit")
+        } 
+
+        
+        console.log(confingUpdating,88)
+        
+        res.redirect("/configs-style")
+        
+    } catch (error) {
+        return res.status(500).json({
+            "message": error.message
+        }) 
+    }
+
+}
 
 
+export async function deleteDisclaimer2 (req, res){
+    // res.send("borrar imagen pequeña")
+    
+    try {
+        
+        const {id} = req.params
+        // console.log(req.params)
+        console.log(req.files, 999)
+        const confingUpdating = await Configs.findByIdAndUpdate(id, req.body, {
+          new: true
+        })
+        
+        if (confingUpdating.imgDisclaimer2?.secure_url !== "" && confingUpdating.imgDisclaimer2.public_id) {
+            
+            const result = await deleteImage(confingUpdating.imgDisclaimer2.public_id)
+            console.log(result,226)
+            
+            confingUpdating.imgDisclaimer2 = {
+                public_id: "",
+                secure_url: ""
+            }
+            
+            await confingUpdating.save()
+        }
+        else {
+            null
+            return console.log("Image litle does not exit")
+        } 
+
+        
+        console.log(confingUpdating,88)
+        
+        res.redirect("/configs-style")
+        
+    } catch (error) {
+        return res.status(500).json({
+            "message": error.message
+        }) 
+    }
+
+}
 
