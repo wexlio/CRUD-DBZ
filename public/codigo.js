@@ -915,7 +915,7 @@ window.addEventListener("click", function(e){
             }
 
 
-            btnEnviar?.addEventListener("click", async (e)=>{
+            btnEnviar?.addEventListener("submit", async (e)=>{
               e.preventDefault();
               const validarCampos = ()=>{
                 let error = [];
@@ -997,12 +997,12 @@ window.addEventListener("click", function(e){
                   
                       element.descuento ?
                       setTimeout(function() {
-                        location.href = ("https://api.whatsapp.com/send?phone="+ `${res[3][0].numeroTelefonico}` + "&text=Hola! 👋 %20Mi%20nombre%20es%20" + `${nombre.value}` + "%20Vivo%20en%20" + `${direccion.value}` + "%20deseo%20adquirir%20el%20siguiente%20producto:\n\n                                                     *                                                               " + "✅" + `${element.nombre}` +  `, ${res[3][0].divisa}` + ` ${element.precio * (1 - element.descuento)}` + "                                                  *"+`${element.imagen1.secure_url}`);
+                        location.href = ("https://api.whatsapp.com/send?phone="+ `${res[3][0].numeroTelefonico}` + "&text=Hola! 👋 %20Mi%20nombre%20es%20" + `${nombre.value}` + ",%20deseo%20adquirir%20el%20siguiente%20producto:\n\n                                                     *                                                               " + "✅" + `${element.nombre}` +  `, ${res[3][0].divisa}` + ` ${element.precio * (1 - element.descuento)}` + "                                                  *"+`${element.imagen1.secure_url}`);
                       }, 500)
                       :
                       setTimeout(function() {
-                        location.href = ("https://api.whatsapp.com/send?phone="+ `${res[3][0].numeroTelefonico}` + "&text=Hola! 👋 %20Mi%20nombre%20es%20" + `${nombre.value}` + "%20Vivo%20en%20" + `${direccion.value}` + "%20deseo%20adquirir%20el%20siguiente%20producto\n\n                                                     *                                                               " + "✅" + `${element.nombre}` + `, ${res[3][0].divisa}` + ` ${element.precio}` + "                                                  *"+`${element.imagen1.secure_url}`);
-                      }, 700)
+                        location.href = ("https://api.whatsapp.com/send?phone="+ `${res[3][0].numeroTelefonico}` + "&text=Hola! 👋 %20Mi%20nombre%20es%20" + `${nombre.value}` + ",%20deseo%20adquirir%20el%20siguiente%20producto\n\n                                                     *                                                               " + "✅" + `${element.nombre}` + `, ${res[3][0].divisa}` + ` ${element.precio}` + "                                                  *"+`${element.imagen1.secure_url}`);
+                      }, 500)
           
                   // console.log("btnEnviar22");
                   resultado.innerHTML = "Solicitud enviada correctamente"
